@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>COVID STATS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+</head>
+
+<body>
+<div class="container">
+
+<div class="jumbotron">
+        <h1 class="display-4"  th:text="${totalReportedCovidCases}"></h1>
+        <p class="lead">Total Reported Covid Cases As Of Today</p>
+    <hr class="my-4">
+    <p><span>Total new cases since last record</span>
+    <span th:text="${totalNewCovidCases}"></span>
+
+    </p>
+
+    </div>
+
+
+
+    <table class="table">
+        <tr>
+            <th>Province</th>
+            <th>Country</th>
+            <th>Changes since last Record</th>
+            <th>Current Stats</th>
+        </tr>
+        <tr th:each="locationStat : ${locationStats}">
+            <td th:text="${locationStat.province}"></td>
+            <td th:text="${locationStat.country}"></td>
+            <td th:text="${locationStat.differenceFromPreviousRecord}">0</td>
+            <td th:text="${locationStat.latestTotalCases}">0</td>
+
+        </tr>
+    </table>
+</div>
+
+
+</body>
+
+</html>
+e
